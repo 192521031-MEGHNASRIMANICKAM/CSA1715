@@ -27,4 +27,4 @@ def water_jug(jug1, jug2, target):
                 queue.append((state[0], state[1], path))
     print("No solution")
 
-water_jug(4, 3, 2
+water_jug(4, 3, 2)
