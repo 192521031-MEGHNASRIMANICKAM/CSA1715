@@ -1,0 +1,4 @@
+person('Arun', '2003-05-12').
+person('Priya', '2004-08-21').
+person('Rahul', '2003-11-30').
+person('Meena', '2004-02-15').
