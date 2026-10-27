@@ -1,0 +1,4 @@
+student_teacher_subject(101, 'Arun', 'Ravi', 'AI', 'CS301').
+student_teacher_subject(102, 'Priya', 'Meena', 'DBMS', 'CS302').
+student_teacher_subject(103, 'Rahul', 'Kumar', 'Python', 'CS303').
+student_teacher_subject(104, 'Divya', 'Ravi', 'AI', 'CS301').
