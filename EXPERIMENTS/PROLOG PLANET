@@ -1,0 +1,9 @@
+planet(mercury, 57900000).
+planet(venus, 108200000).
+planet(earth, 149600000).
+planet(mars, 227900000).
+planet(jupiter, 778600000).
+planet(saturn, 1433500000).
+planet(uranus, 2872500000).
+planet(neptune, 4495100000).
+?- planet(earth, Distance).
