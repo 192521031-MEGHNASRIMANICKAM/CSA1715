@@ -1,0 +1,45 @@
+edge(a, b, 4).
+edge(a, c, 2).
+edge(b, d, 5).
+edge(b, e, 3).
+edge(c, f, 4).
+edge(c, g, 6).
+edge(d, h, 2).
+edge(e, h, 4).
+edge(f, h, 3).
+edge(g, h, 5).
+
+heuristic(a, 7).
+heuristic(b, 6).
+heuristic(c, 4).
+heuristic(d, 3).
+heuristic(e, 2).
+heuristic(f, 2).
+heuristic(g, 3).
+heuristic(h, 0).
+
+best_first(Start, Goal, Path) :-
+    search([[Start]], Goal, RevPath),
+    reverse(RevPath, Path).
+
+search([[Goal|Rest]|_], Goal, [Goal|Rest]).
+
+search([Path|Paths], Goal, Result) :-
+    Path = [Current|_],
+    findall([Next|Path],
+        (edge(Current, Next, _),
+         \+ member(Next, Path)),
+        NewPaths),
+    append(Paths, NewPaths, AllPaths),
+    sort_paths(AllPaths, Sorted),
+    search(Sorted, Goal, Result).
+
+sort_paths(Paths, Sorted) :-
+    map_list_to_pairs(path_heuristic, Paths, Pairs),
+    keysort(Pairs, SortedPairs),
+    pairs_values(SortedPairs, Sorted).
+
+path_heuristic([Node|_], H) :-
+    heuristic(Node, H).
+
+?- best_first(a, h, Path).
