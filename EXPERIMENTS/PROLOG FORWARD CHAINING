@@ -1,0 +1,18 @@
+fact(sun_rises).
+fact(daytime).
+
+rule(daytime, bright).
+rule(bright, visibility).
+rule(visibility, plants_grow).
+
+derive(X) :-
+    fact(X).
+
+derive(X) :-
+    rule(Y, X),
+    derive(Y).
+
+?- derive(daytime).
+?- derive(bright).
+?- derive(visibility).
+?- derive(plants_grow).
