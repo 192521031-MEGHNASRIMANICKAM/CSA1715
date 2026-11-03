@@ -1,0 +1,14 @@
+diet(diabetes, 'Whole grains, vegetables and low-sugar fruits').
+diet(hypertension, 'Low-salt foods, fruits and vegetables').
+diet(obesity, 'High-fiber foods, vegetables and lean protein').
+diet(anemia, 'Iron-rich foods like spinach, beans and lentils').
+diet(heart_disease, 'Fruits, vegetables and low-saturated-fat foods').
+
+suggest_diet(Disease) :-
+    diet(Disease, Food),
+    write('Suggested diet: '),
+    write(Food).
+
+suggest_diet(Disease) :-
+    \+ diet(Disease, _),
+    write('No diet information available for this disease.').
