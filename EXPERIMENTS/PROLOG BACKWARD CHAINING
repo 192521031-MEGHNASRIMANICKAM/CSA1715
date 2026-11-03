@@ -1,0 +1,19 @@
+fact(sun_rises).
+fact(daytime).
+
+rule(daytime, bright).
+rule(bright, visibility).
+rule(visibility, plants_grow).
+
+prove(X) :-
+    fact(X).
+
+prove(X) :-
+    rule(Y, X),
+    prove(Y).
+
+?- prove(daytime).
+?- prove(bright).
+?- prove(visibility).
+?- prove(plants_grow).
+?- prove(rain).
