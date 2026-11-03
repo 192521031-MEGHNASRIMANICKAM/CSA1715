@@ -1,0 +1,30 @@
+symptom(fever, flu).
+symptom(cough, flu).
+symptom(headache, flu).
+
+symptom(sneezing, cold).
+symptom(runny_nose, cold).
+symptom(cough, cold).
+
+symptom(fever, malaria).
+symptom(chills, malaria).
+symptom(sweating, malaria).
+
+diagnosis(Patient, Disease) :-
+    has_symptom(Patient, S1),
+    has_symptom(Patient, S2),
+    symptom(S1, Disease),
+    symptom(S2, Disease),
+    S1 \= S2.
+
+has_symptom(rahul, fever).
+has_symptom(rahul, cough).
+has_symptom(rahul, headache).
+
+has_symptom(priya, sneezing).
+has_symptom(priya, runny_nose).
+has_symptom(priya, cough).
+
+?- diagnosis(rahul, Disease).
+?- diagnosis(priya, Disease).
+?- symptom(S, flu).
